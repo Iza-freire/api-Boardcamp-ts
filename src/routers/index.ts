@@ -6,7 +6,7 @@ import customersRouter from "./customerRoutes.js"
 const routes: Router = Router();
 
 routes.use("/games", gameRoutes);
+routes.use("/customers", customersRouter)
 //routes.use("/rentals", rentalsRouter);
-//routes.use("/customers", customersRouter)
 
 export default routes;
