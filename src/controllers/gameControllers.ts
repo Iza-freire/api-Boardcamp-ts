@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { GameService } from '../services/games.service.js';
+import { GameService } from '../services/gamesService.js';
 
 const gameService = new GameService();
 
