@@ -18,8 +18,10 @@ export const CustomerService = {
   async updateCustomer(id: number, name: string, phone: string, cpf: string, birthday: Date): Promise<any> {
     const customer = await CustomerRepository.updateCustomer(id, name, phone, cpf, birthday);
     return customer;
+  },
+
+  async deleteCustomer(id: number): Promise<void> {
+    await CustomerRepository.deleteCustomer(id);
   }
+
 };
-
-
-

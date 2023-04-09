@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { CustomerService } from '../services/costumersService.js';
 
-export async function createCustomer(req: Request, res: Response): Promise<void> {
+async function createCustomer(req: Request, res: Response): Promise<void> {
   const { name, phone, cpf, birthday } = req.body;
 
   try {
@@ -13,7 +13,7 @@ export async function createCustomer(req: Request, res: Response): Promise<void>
   }
 }
 
-export async function retrieveCustomers(req: Request, res: Response): Promise<void> {
+async function allCustomers(req: Request, res: Response): Promise<void> {
   try {
     const customers = await CustomerService.retrieveCustomers();
     res.send(customers);
@@ -22,7 +22,7 @@ export async function retrieveCustomers(req: Request, res: Response): Promise<vo
   }
 }
 
-export async function getCustomerById(req: Request, res: Response): Promise<void> {
+async function getCustomerById(req: Request, res: Response): Promise<void> {
   const customerId: number = parseInt(req.params.id);
 
   try {
@@ -39,7 +39,7 @@ export async function getCustomerById(req: Request, res: Response): Promise<void
   }
 }
 
-export async function putUpdateCustomer(req: Request, res: Response): Promise<void> {
+async function putUpdateCustomer(req: Request, res: Response): Promise<void> {
   const customerId: number = parseInt(req.params.id);
   const { name, phone, cpf, birthday } = req.body;
 
@@ -57,5 +57,22 @@ export async function putUpdateCustomer(req: Request, res: Response): Promise<vo
   }
 }
 
+async function deleteCustomer(req: Request, res: Response) {
+  const { id } = req.params;
 
+  try {
+    await CustomerService.deleteCustomer(Number(id));
+    return res.sendStatus(204);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}
+export default {
+  createCustomer,
+  allCustomers,
+  getCustomerById,
+  putUpdateCustomer,
+  deleteCustomer
+}
 
