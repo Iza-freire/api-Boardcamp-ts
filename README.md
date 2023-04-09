@@ -1,1 +1,3 @@
 # api-Boardcamp-ts
+
+Este é um projeto que consiste em criar um sistema de gestão para uma locadora de jogos de tabuleiro. Será utilizado Node.js, Express.js e TypeScript para a construção da aplicação. Além disso, será utilizado Banco de Dados Relacional (SQL) para armazenar as informações dos jogos e dos clientes. O objetivo é fornecer uma plataforma que facilite a locação e devolução dos jogos, além de permitir o gerenciamento dos jogos disponíveis e dos clientes. Este projeto visa atender a uma demanda crescente por jogos de tabuleiro e ajudar as locadoras a oferecerem uma experiência divertida e imersiva para seus clientes.
