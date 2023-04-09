@@ -1,14 +1,16 @@
 import { Request, Response } from 'express';
 import { GameService } from '../services/gamesService.js';
+import { Game } from '../schemas/GameSchemas.js';
 
 const gameService = new GameService();
 
-async function createGames(req: Request, res: Response): Promise<void> {
+export async function createGames(req: Request, res: Response) {
+  const game: Game = req.body;
   try {
-    const game = await gameService.createGame(req.body);
-    res.status(201).send('Game created successfully!');
-  } catch (err) {
-    res.status(500).send(err.message);
+    const createdGame = await gameService.createGame(game);
+    res.status(201).send(createdGame);
+  } catch (error) {
+    res.status(400).send({ error: error.message });
   }
 }
 
@@ -22,10 +24,10 @@ async function allGames(req: Request, res: Response): Promise<void> {
 }
 
 export default {
-    createGames,
-    allGames
-
+  createGames,
+  allGames
 }
+
 
 
 

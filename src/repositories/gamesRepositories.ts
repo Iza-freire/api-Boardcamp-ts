@@ -4,12 +4,10 @@ import { connectionDB } from '../config/database.js';
 export class GameRepository {
   async createGame(game: Game): Promise<Game> {
     const { name, image, stockTotal, pricePerDay } = game;
-
     const result = await connectionDB.query(
       `INSERT INTO games (name, image, "stockTotal", "pricePerDay") VALUES ($1, $2, $3, $4) RETURNING *`,
       [name, image, stockTotal, pricePerDay]
     );
-
     return result.rows[0];
   }
 
@@ -24,6 +22,7 @@ export class GameRepository {
     if (result.rows.length === 0) {
       return null;
     }
+
 
     return result.rows[0];
   }
