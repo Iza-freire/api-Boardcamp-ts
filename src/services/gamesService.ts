@@ -1,4 +1,4 @@
-import { Game } from '../schemas/GameSchemas.js';
+import { Game } from '../protocols/index.js';
 import { GameRepository } from '../repositories/gamesRepositories.js';
 
 const gameRepository = new GameRepository();

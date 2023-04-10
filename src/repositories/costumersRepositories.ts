@@ -1,5 +1,5 @@
 import { connectionDB } from '../config/database.js';
-import { Customer } from '../schemas/CustomerSchemas.js';
+import { Customer } from '../protocols/index.js';
 
 export const CustomerRepository = {
   async createCustomer(name: string, phone: string, cpf: string, birthday: Date): Promise<void> {

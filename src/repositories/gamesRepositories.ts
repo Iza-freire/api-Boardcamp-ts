@@ -1,4 +1,4 @@
-import { Game } from '../schemas/GameSchemas.js';
+import { Game } from '../protocols/index.js';
 import { connectionDB } from '../config/database.js';
 
 export class GameRepository {

@@ -6,11 +6,3 @@ export const CustomersSchema = Joi.object({
     cpf: Joi.string().regex(/^\d{11}$/).required(),
     birthday: Joi.date().required()
 });
-
-export interface Customer {
-  rows: any;
-  cpf: string;
-  name: string;
-  phone: string;
-  birthday: string;
-}

@@ -7,9 +7,3 @@ export const GameSchema = Joi.object({
     pricePerDay: Joi.number().required()
 });
 
-export interface Game {
-  name: string;
-  image: string;
-  stockTotal: number;
-  pricePerDay: number;
-}

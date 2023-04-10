@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { GameService } from '../services/gamesService.js';
-import { Game } from '../schemas/GameSchemas.js';
+import { Game } from '../protocols/index.js';
 
 const gameService = new GameService();
 
